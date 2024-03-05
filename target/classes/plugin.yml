@@ -1,0 +1,9 @@
+name: DropItemTree
+version: '1.0'
+main: org.fr0nix.plugin.Main
+api-version: '1.20'
+prefix: ! 
+load: STARTUP
+authors: [Fr0NiX]
+description: Plugin
+website: fr0nix.ru
