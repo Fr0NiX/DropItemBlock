@@ -24,11 +24,10 @@ public class Main extends JavaPlugin implements Listener {
     public void onEnable() {
         getServer().getPluginManager().registerEvents(this, this);
 
-        // Создаем конфигурационный файл при первом запуске
-        setupDefaultConfig(); // Используем метод setupDefaultConfig() вместо saveDefaultConfig()
+        setupDefaultConfig();
         config = getConfig();
 
-        getLogger().info("Плагин инициализирован!"); // Сообщение о инициализации плагина
+        getLogger().info("Плагин инициализирован!");
     }
 
     @EventHandler
@@ -43,9 +42,9 @@ public class Main extends JavaPlugin implements Listener {
                 Material itemMaterial = Material.matchMaterial(this.config.getString("itemMaterial", "MELON"));
                 if (chance < dropChance) {
                     ItemStack itemStack = new ItemStack(itemMaterial);
-                    ItemMeta itemMeta = itemStack.getItemMeta(); // Create a new ItemMeta
+                    ItemMeta itemMeta = itemStack.getItemMeta();
                     itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', itemName));
-                    itemStack.setItemMeta(itemMeta); // Set the ItemMeta back to the ItemStack
+                    itemStack.setItemMeta(itemMeta);
                     event.getBlock().getWorld().dropItemNaturally(event.getBlock().getLocation(), itemStack);
                 }
             }
